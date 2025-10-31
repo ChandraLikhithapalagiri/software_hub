@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Mobile App Development Service - Software & IT Services Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .service-info {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .service-info h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .service-info h3 {
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .service-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-info li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .service-info li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing-badge {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-badge strong {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .form-container {
+            background: white;
+        }
+
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .platform-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .platform-option {
+            position: relative;
+        }
+
+        .platform-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .platform-option label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .platform-option .platform-icon {
+            font-size: 2rem;
+        }
+
+        .platform-option input[type="checkbox"]:checked + label {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .budget-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .budget-option {
+            position: relative;
+        }
+
+        .budget-option input[type="radio"] {
+            display: none;
+        }
+
+        .budget-option label {
+            display: block;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .budget-option input[type="radio"]:checked + label {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .success-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .success-content h2 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .success-content p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .close-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .service-info {
+                position: static;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .budget-options {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="services.html" class="back-link">← Back to Services</a>
+            <div class="header-icon">📱</div>
+            <h1>Mobile App Development</h1>
+            <p>Powerful Android/iOS applications crafted for performance</p>
+        </div>
+
+        <div class="content">
+            <div class="service-info">
+                <h2>What's Included</h2>
+                <ul>
+                    <li>Native iOS & Android apps</li>
+                    <li>Cross-platform development</li>
+                    <li>Intuitive UI/UX design</li>
+                    <li>App Store deployment</li>
+                    <li>Push notifications</li>
+                    <li>Analytics integration</li>
+                </ul>
+
+                <h3>Technologies We Use</h3>
+                <ul>
+                    <li>Swift & Kotlin (Native)</li>
+                    <li>React Native & Flutter</li>
+                    <li>Firebase & AWS</li>
+                    <li>RESTful APIs & GraphQL</li>
+                </ul>
+
+                <div class="pricing-badge">
+                    <strong>Starting from $10,000</strong>
+                    <p style="margin-top: 8px; color: #666; font-size: 0.9rem;">Custom quote based on requirements</p>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h2>Request a Quote</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" placeholder="Your Company Inc. (Optional)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Target Platform(s) <span class="required">*</span></label>
+                        <div class="platform-options">
+                            <div class="platform-option">
+                                <input type="checkbox" id="ios" name="platform" value="ios" required>
+                                <label for="ios">
+                                    <span class="platform-icon">🍎</span>
+                                    <span>iOS</span>
+                                </label>
+                            </div>
+                            <div class="platform-option">
+                                <input type="checkbox" id="android" name="platform" value="android">
+                                <label for="android">
+                                    <span class="platform-icon">🤖</span>
+                                    <span>Android</span>
+                                </label>
+                            </div>
+                            <div class="platform-option">
+                                <input type="checkbox" id="both" name="platform" value="both">
+                                <label for="both">
+                                    <span class="platform-icon">📲</span>
+                                    <span>Both</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appType">Type of App <span class="required">*</span></label>
+                        <select id="appType" name="appType" required>
+                            <option value="">Select app type</option>
+                            <option value="ecommerce">E-commerce App</option>
+                            <option value="social">Social Networking</option>
+                            <option value="delivery">Food/Delivery Service</option>
+                            <option value="healthcare">Healthcare/Fitness</option>
+                            <option value="education">Education/E-learning</option>
+                            <option value="entertainment">Entertainment/Media</option>
+                            <option value="business">Business/Productivity</option>
+                            <option value="booking">Booking/Reservation</option>
+                            <option value="finance">Finance/Banking</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="approach">Development Approach <span class="required">*</span></label>
+                        <select id="approach" name="approach" required>
+                            <option value="">Select approach</option>
+                            <option value="native">Native (Swift/Kotlin) - Best Performance</option>
+                            <option value="react-native">React Native - Cost Effective</option>
+                            <option value="flutter">Flutter - Cross Platform</option>
+                            <option value="not-sure">Not Sure - Need Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Features Needed</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature1" name="features" value="authentication">
+                                <label for="feature1">User Authentication</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature2" name="features" value="push">
+                                <label for="feature2">Push Notifications</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature3" name="features" value="payment">
+                                <label for="feature3">Payment Gateway</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature4" name="features" value="maps">
+                                <label for="feature4">Maps/Location</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature5" name="features" value="chat">
+                                <label for="feature5">In-app Chat</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature6" name="features" value="social">
+                                <label for="feature6">Social Media Login</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature7" name="features" value="camera">
+                                <label for="feature7">Camera/Gallery</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature8" name="features" value="analytics">
+                                <label for="feature8">Analytics</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Budget <span class="required">*</span></label>
+                        <div class="budget-options">
+                            <div class="budget-option">
+                                <input type="radio" id="budget1" name="budget" value="$10k-$25k" required>
+                                <label for="budget1">$10k - $25k</label>
+                            </div>
+                            <div class="budget-option">
+                                <input type="radio" id="budget2" name="budget" value="$25k-$50k">
+                                <label for="budget2">$25k - $50k</label>
+                            </div>
+                            <div class="budget-option">
+                                <input type="radio" id="budget3" name="budget" value="$50k-$100k">
+                                <label for="budget3">$50k - $100k</label>
+                            </div>
+                            <div class="budget-option">
+                                <input type="radio" id="budget4" name="budget" value="$100k+">
+                                <label for="budget4">$100k+</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">Preferred Timeline <span class="required">*</span></label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select timeline</option>
+                            <option value="urgent">As soon as possible</option>
+                            <option value="2-3months">2-3 months</option>
+                            <option value="3-6months">3-6 months</option>
+                            <option value="6-12months">6-12 months</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Project Details <span class="required">*</span></label>
+                        <textarea id="details" name="details" required placeholder="Please describe your app idea, target audience, key features, design preferences, and any reference apps you like..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="success-modal">
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h2>Request Submitted Successfully!</h2>
+            <p>Thank you for choosing our mobile app development services. Our team will review your requirements and contact you within 24 hours to discuss your app project in detail.</p>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('bookingForm');
+        const modal = document.getElementById('successModal');
+        const platformCheckboxes = document.querySelectorAll('input[name="platform"]');
+
+        // Handle platform selection logic
+        platformCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.value === 'both' && this.checked) {
+                    platformCheckboxes.forEach(cb => {
+                        if (cb.value !== 'both') cb.checked = false;
+                    });
+                } else if (this.value !== 'both' && this.checked) {
+                    platformCheckboxes.forEach(cb => {
+                        if (cb.value === 'both') cb.checked = false;
+                    });
+                }
+            });
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = {
+                service: 'Mobile App Development',
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                company: formData.get('company'),
+                platform: formData.getAll('platform'),
+                appType: formData.get('appType'),
+                approach: formData.get('approach'),
+                features: formData.getAll('features'),
+                budget: formData.get('budget'),
+                timeline: formData.get('timeline'),
+                details: formData.get('details')
+            };
+
+            console.log('Booking submitted:', data);
+
+            modal.classList.add('show');
+        });
+
+        function closeModal() {
+            modal.classList.remove('show');
+            form.reset();
+        }
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

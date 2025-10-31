@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Solutions - Book Now</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .left-section {
+            padding: 40px;
+            background: #f8f9ff;
+        }
+
+        .right-section {
+            padding: 40px;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #333;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .pricing {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing .price {
+            font-size: 28px;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .pricing .note {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .form-title {
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        label .required {
+            color: #e74c3c;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .platform-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .platform-option {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .platform-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .platform-option.selected {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .platform-option .icon-img {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .platform-option .label {
+            font-size: 13px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="services.html" class="back-btn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp← Back to Services</a>
+            <div class="icon">☁️</div>
+            <h1>Cloud Solutions</h1>
+            <p>Scalable and secure cloud infrastructure for your business</p>
+        </div>
+
+        <div class="content">
+            <div class="left-section">
+                <h2 class="section-title">What's Included</h2>
+                <ul class="feature-list">
+                    <li>Cloud architecture design</li>
+                    <li>Migration & deployment</li>
+                    <li>Auto-scaling setup</li>
+                    <li>Security & compliance</li>
+                    <li>Backup & disaster recovery</li>
+                    <li>Performance monitoring</li>
+                </ul>
+
+                <h2 class="section-title">Technologies We Use</h2>
+                <ul class="feature-list">
+                    <li>AWS & Azure & GCP</li>
+                    <li>Kubernetes & Docker</li>
+                    <li>Terraform & CloudFormation</li>
+                    <li>CI/CD Pipelines</li>
+                </ul>
+
+                <div class="pricing">
+                    <div class="price">Starting from $5,000</div>
+                    <div class="note">Custom quote based on requirements</div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <h2 class="form-title">Request a Quote</h2>
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label>Full Name <span class="required">*</span></label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" placeholder="+1 (555) 123-4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" placeholder="Your Company Inc (Optional)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cloud Platform(s) <span class="required">*</span></label>
+                        <div class="platform-options">
+                            <div class="platform-option" onclick="togglePlatform(this)">
+                                <div class="icon-img">🟠</div>
+                                <div class="label">AWS</div>
+                            </div>
+                            <div class="platform-option" onclick="togglePlatform(this)">
+                                <div class="icon-img">🔷</div>
+                                <div class="label">Azure</div>
+                            </div>
+                            <div class="platform-option" onclick="togglePlatform(this)">
+                                <div class="icon-img">🔴</div>
+                                <div class="label">GCP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Service Type <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select service type</option>
+                            <option value="migration">Cloud Migration</option>
+                            <option value="infrastructure">Infrastructure Setup</option>
+                            <option value="optimization">Performance Optimization</option>
+                            <option value="managed">Managed Services</option>
+                            <option value="consulting">Cloud Consulting</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Scope <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select project scope</option>
+                            <option value="small">Small (< $10K)</option>
+                            <option value="medium">Medium ($10K - $50K)</option>
+                            <option value="large">Large ($50K - $100K)</option>
+                            <option value="enterprise">Enterprise (> $100K)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea rows="4" placeholder="Tell us about your cloud requirements..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Request Quote</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePlatform(element) {
+            element.classList.toggle('selected');
+        }
+
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedPlatforms = document.querySelectorAll('.platform-option.selected');
+            if (selectedPlatforms.length === 0) {
+                alert('Please select at least one cloud platform');
+                return;
+            }
+            
+            alert('Thank you for your request! We will get back to you within 24 hours.');
+            this.reset();
+            selectedPlatforms.forEach(p => p.classList.remove('selected'));
+        });
+    </script>
+</body>
+</html>
